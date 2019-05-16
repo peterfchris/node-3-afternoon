@@ -12,4 +12,12 @@ massive(CONNECTION_STRING)
     })
 })
 
+app.use(express.json())
+
+app.post('/api/products', products_controller.create)
+app.get('/api/getone/:id', products_controller.getOne)
+app.get('/api/products', products_controller.getAll)
+app.put('/api/products/:id', products_controller.update)
+app.delete('/api/products/:id', products_controller.delete)
+
 app.listen(SERVER_PORT, () => console.log(`Nothing is screwed up on ${SERVER_PORT}`))
